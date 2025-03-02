@@ -1,0 +1,331 @@
+.rotate-45 {
+  display: inline-block;
+  transform: rotate(-45deg);
+}
+
+.resource-card {
+  border: 1px solid var(--border-color);
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  box-shadow: 5px 5px 10px #d9d9d9,
+             -5px -5px 10px #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 8px 8px 16px #d1d1d1,
+             -8px -8px 16px #ffffff;
+}
+
+.resource-card::before {
+  content: '+';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  background: var(--card-background);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+@media (min-width: 769px) {
+  .resource-card:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: .9rem;
+  font-weight: 400;
+  color: var(--text-color);
+  margin-top: 1rem;
+}
+
+.resource-image {
+  height: 230px;
+  min-height: 230px;
+  object-fit: cover;
+  width: 100%;
+  padding: 0;
+}
+
+.tag {
+  background-color: #f5f5f5;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-weight: 400;
+}
+
+.badge {
+  background-color: #deeaf7;
+  color: #4390ff;
+  border-radius: 999px;
+}
+
+#filter-nav.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  border-top: 1px solid #dee2e6;
+}
+
+footer h5,
+footer h6 {
+  font-weight: 600;
+}
+
+footer .list-unstyled li {
+  margin-bottom: 0.5rem;
+}
+
+footer .form-control {
+  background-color: #f8f9fa;
+}
+
+.modal-content {
+  border-radius: 0.5rem;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.modal-body {
+  padding-top: 0;
+}
+
+/* Estilos generales */
+:root {
+  --primary-color: #000000;
+  --background-color: #fafafa;
+  --card-background: #ffffff;
+  --text-color: #171717;
+  --text-secondary: #666666;
+  --border-color: #eaeaea;
+  --hover-color: rgba(0, 0, 0, 0.04);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-color);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navegación con filtros sticky */
+.filter-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+#filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.25rem 1rem;
+  margin: 0 -1rem;
+}
+
+#filter-buttons::-webkit-scrollbar {
+  display: none;
+}
+
+/* Estilo de los botones de filtro */
+.filter-nav button {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #f8fafd, #e9eef5);
+  border: 1px solid #dde7fa;
+  color: #4F5E7B;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Quitar estilos específicos del primer botón */
+.filter-nav button .badge {
+  background: #F5F7FA;
+  color: #4F5E7B;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  border-radius: 999px;
+}
+
+/* Estilos solo para botones activos */
+.filter-nav button.active {
+  background: linear-gradient(145deg, #0070ff, #005ce6);
+  color: #c5dcff;
+  border-color: #0148b4;
+  box-shadow: inset 3px 3px 6px #5592ea,
+              inset -3px -3px 6px #246fbe;
+}
+
+.filter-nav button.active:hover {
+  background: linear-gradient(145deg, #0070ff, #005ce6);
+  color: #c5dcff;
+  border-color: #0148b4;
+}
+
+.filter-nav button:hover {
+  background: linear-gradient(145deg, #d8e6ff, #c2d8ff);
+  color: #0066FF;
+  border-color: #9ac1fb;
+  transform: scale(1.05);
+}
+
+.filter-nav button.active .badge {
+  background: #0066FF;
+  color: white;
+}
+
+/* Indicador de scroll */
+.filter-nav .container {
+  position: relative;
+}
+
+.filter-nav .container::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.98));
+  pointer-events: none;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Mantener solo las animaciones mejoradas */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal.fade.show .modal-dialog {
+  animation: modalFadeIn 0.3s ease forwards;
+}
+
+/* Mantener los estilos de diseño del modal */
+.modal-content {
+  border-radius: 0.5rem;
+  transform: none;  /* Eliminar la transformación que interfiere */
+}
+
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.modal-body {
+  padding-top: 0;
+}
+
+/* Ajuste de espaciado para los resources */
+main {
+  padding-top: 2rem;
+}
+
+/* Mejorar contraste en textos pequeños */
+small.text-muted {
+  color: #666666 !important;
+}
+
+/* Botón de cargar más */
+.load-more-btn {
+  width: auto;
+  min-width: 200px;
+  padding: 0.75rem 2rem;
+  margin: 3rem auto;
+  display: block;
+  background: linear-gradient(304deg, #066dfa, #0561e6);
+  border: 1px solid #1552b3;
+  border-radius: 999px;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 4px 4px 8px #4781db, 
+               -4px -4px 8px #ffffff;
+}
+
+.load-more-btn:hover {
+  background: linear-gradient(304deg, #0758c8, #297aef);
+  border: 1px solid #1552b3;
+  border-radius: 999px;
+  color: rgb(13, 9, 102);
+  font-weight: 500;
+  transition: all 0.3scubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset -4px -4px 8px #0d6efd73, -4px -4px 8px #ffffff;
+  transform: scale(1.05);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  text-align: left;
+  width: 100%;
+  padding-right: 2rem;
+}
+

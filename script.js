@@ -4,10 +4,10 @@ const resources = [
     title: "Obsidian app icon",
     image:
       "images/obsidian-logo.gif",
-    tag: "Bento",
+    tag: "Logo",
     type: "Interaction",
     description:
-      "A comprehensive tool for managing your freelance business, handling everything from proposals to invoicing.",
+      "Animación del logotipo para la herramienta de notas llamada Obsidian.",
   },
 ]
 
